@@ -122,3 +122,44 @@ models/restaurant.js
       FRONTEND
       
       src/screens/restaurants/RestaurantsScreen.js
+      
+      
+      
+          navigation.navigate('RestaurantDetailScreen', { id: item.id })
+        }}
+      >
+
+        <TextRegular numberOfLines={2}>{item.description}</TextRegular>
+        {item.averageServiceMinutes !== null &&
+          <TextSemiBold>Avg. service time: <TextSemiBold textStyle={{ color: brandPrimary }}>{item.averageServiceMinutes} min.</TextSemiBold></TextSemiBold>
+        }
+        <TextSemiBold>Shipping: <TextSemiBold textStyle={{ color: brandPrimary }}>{item.shippingCosts.toFixed(2)}€</TextSemiBold></TextSemiBold>
+         {/* SOLUTION */}
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }} >
+            <TextSemiBold>Shipping: <TextSemiBold textStyle={{ color: brandPrimary }}>{item.shippingCosts.toFixed(2)}€</TextSemiBold></TextSemiBold>
+            {item.isInexpensive &&
+                <TextRegular textStyle={[styles.badge, { color: brandSuccess, borderColor: brandSuccess }] }>€</TextRegular>
+            }
+            {!item.isInexpensive &&
+            <TextRegular textStyle={[styles.badge, { color: brandPrimary, borderColor: brandPrimary }] }>€€</TextRegular>
+            }
+        </View>
+         {/* END SOLUTION */}
+      </ImageCard>
+    )
+  }
+@@ -120,5 +131,14 @@ const styles = StyleSheet.create({
+  emptyList: {
+    textAlign: 'center',
+    padding: 50
+  },
+  // Solucion
+  badge: {
+    textAlign: 'center',
+    borderWidth: 2,
+    width: 45,
+    paddingVertical: 2,
+    paddingHorizontal: 10,
+    borderRadius: 10
+  }
+})
