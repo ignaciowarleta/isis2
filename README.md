@@ -11,6 +11,8 @@ Secondly, we will understand how to create the Model of our project (from the MV
 
 
 
+BACKEND
+
 controllers/ProductController.js
 
   }
