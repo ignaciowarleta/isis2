@@ -53,3 +53,72 @@ exports.update = async function (req, res) {
   const err = validationResult(req)
   if (err.errors.length > 0) {
 
+
+
+
+
+
+controllers/RestaurantController.js
+
+
+try {
+    const restaurants = await Restaurant.findAll(
+      {
+        attributes: ['id', 'name', 'description', 'address', 'postalCode', 'url', 'shippingCosts', 'averageServiceMinutes', 'email', 'phone', 'logo', 'heroImage', 'status', 'restaurantCategoryId'],
+        attributes: ['id', 'name', 'description', 'address', 'postalCode', 'url', 'shippingCosts', 'averageServiceMinutes', 'email', 'phone', 'logo', 'heroImage', 'status', 'restaurantCategoryId', 'isInexpensive'],
+        include:
+      {
+        model: RestaurantCategory,
+@@ -29,7 +29,7 @@ exports.indexOwner = async function (req, res) {
+  try {
+    const restaurants = await Restaurant.findAll(
+      {
+        attributes: ['id', 'name', 'description', 'address', 'postalCode', 'url', 'shippingCosts', 'averageServiceMinutes', 'email', 'phone', 'logo', 'heroImage', 'status', 'restaurantCategoryId'],
+        attributes: ['id', 'name', 'description', 'address', 'postalCode', 'url', 'shippingCosts', 'averageServiceMinutes', 'email', 'phone', 'logo', 'heroImage', 'status', 'restaurantCategoryId', 'isInexpensive'],
+        where: { userId: req.user.id }
+      })
+    res.json(restaurants)
+    
+    
+    
+    
+     
+migrations/20210629195916-create-restaurant.js
+@@ -57,6 +57,10 @@ module.exports = {
+        ],
+        defaultValue: 'offline'
+      },
+      isInexpensive: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+  4  
+models/restaurant.js
+@@ -50,6 +50,10 @@ module.exports = (sequelize, DataTypes) => {
+        'temporarily closed'
+      ]
+    },
+    isInexpensive: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    restaurantCategoryId: {
+      allowNull: false,
+      type: DataTypes.INTEGER
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      FRONTEND
+      
+      src/screens/restaurants/RestaurantsScreen.js
