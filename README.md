@@ -171,3 +171,21 @@ models/restaurant.js
 
 import { StyleSheet, FlatList, Pressable, View } from 'react-native'
 import { brandPrimary, brandPrimaryTap, brandSecondary, flashStyle, flashTextStyle, brandSuccess, brandBackground } from '../../styles/GlobalStyles'
+
+
+
+
+.env
+npm install
+npm start 
+Cambiar Models y Migrations
+Modificar Controller
+Código migrations
+Código seeders
+
+
+npx sequelize-cli db:migrate
+npx sequelize-cli db:seed:all
+
+
+
