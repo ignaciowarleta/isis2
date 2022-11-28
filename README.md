@@ -165,3 +165,9 @@ models/restaurant.js
     borderRadius: 10
   }
 })
+
+
+
+
+import { StyleSheet, FlatList, Pressable, View } from 'react-native'
+import { brandPrimary, brandPrimaryTap, brandSecondary, flashStyle, flashTextStyle, brandSuccess, brandBackground } from '../../styles/GlobalStyles'
