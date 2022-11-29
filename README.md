@@ -189,3 +189,11 @@ npx sequelize-cli db:seed:all
 
 
 
+
+
+https://github.com/IISSI2-IS-profs/laboratory-exam-backend-solutions/compare/main...september-version-1
+https://github.com/IISSI2-IS-profs/laboratory-exam-frontend-solutions/compare/main...september-version-1
+https://github.com/IISSI2-IS-profs/laboratory-exam-backend-solutions/
+https://github.com/IISSI2-IS-profs/laboratory-exam-frontend-solutions
+
+
